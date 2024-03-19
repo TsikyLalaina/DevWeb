@@ -1,0 +1,108 @@
+<?php
+    session_start();
+    include("connect.php");
+    include("functions.php");
+    $user_data = check_login($con);
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.7.1.js"></script>
+        <link rel="stylesheet" href="css\all.css">
+        <link rel="stylesheet" href="styleindex.css">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <title>Home Page</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <img src="images/logo.png" class="logo">
+                <nav>
+                    <ul>
+                        <li><a href="">You are loged in</a></li>
+                    </ul>
+                </nav>
+                <div class="menu"><i class="fa-solid fa-user fa-xl"></i></div>
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <img src="<?php echo $user_data['image']; ?>" alt="Profile Picture">
+                            <h2><?php echo $user_data['mail']; ?></h2>
+                        </div>
+                        <hr>
+                        <a href="#" class="sub-menu-link">
+                            <i class="fa-solid fa-user-pen"></i>
+                            <p>Edit Profile</p>
+                            <t>></t>
+                        </a>
+                        <a href="#" class="sub-menu-link">
+                            <i class="fa-solid fa-gear"></i>
+                            <p>Settings & Privacy</p>
+                            <t>></t>
+                        </a>
+                        <a href="#" class="sub-menu-link">
+                            <i class="fa-solid fa-circle-question"></i>
+                            <p>Help & Support</p>
+                            <t>></t>
+                        </a>
+                        <a href="#" class="sub-menu-link">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <p>Logout</p>
+                            <t>></t>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col1">
+                    <h1>EMIFI</h1>
+                    <p>Ny EMIFI na Emit Mikalo Fiderana dia 
+                        vondrona iray na an-tokom-pihira (Chorale) iray 
+                        mivoitra eo anivon'ny Oniversiten'ny Fianarantsoa, 
+                        izay mitory sy midera ny filazantsaran'ny Tompo 
+                        Andriamanitra amin'ny alalan'ny hira avy amin'ireo
+                        mpandraharaha sy ireo mpianatra eo amin'ny sekoly 
+                        EMIT na Ecole de Management et d'Innovation Technologique.</p>
+                    <button type="button"><span></span>Devenir membre</button>
+                </div>
+                <div class="col col2">
+                    <a href="nosmembres.html">
+                        <div class="card card1">
+                            <h5>Nos Membres</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing 
+                                elit.</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="card card2">
+                            <h5>Sahara Desert</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing 
+                                elit.</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="card card3">
+                            <h5>Sahara Desert</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing 
+                                elit.</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="card card4">
+                            <h5>Sahara Desert</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing 
+                                elit..</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <script>
+            $('.menu').click(
+                function toggleMenu(){
+                    document.getElementById("subMenu").classList.toggle('open-menu');
+                }
+            );
+        </script>
+    </body>
+</html>

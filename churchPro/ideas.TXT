@@ -1,0 +1,8 @@
+event organizer (créer un evenement, voir les evenement actuelle, voir les evenement passé)(date, lieu, descrption,...(demande à AI les détails))(voir youtube)
+devenir membre.(numero d'etudiant,...)
+our team(chercher des exemples de websites)(avec portofolio)(demande à AI les  informations  qui devraient être vue dans le portofolio)
+Nos chansons (like spotify)
+FORUM
+search bar php ajax
+jquery
+sticky header.

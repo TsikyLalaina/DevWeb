@@ -1,0 +1,314 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #262626;
+    font-family: Arial, sans-serif;
+}
+.navbar{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+    padding-right: 8%;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    transition: 0.6s;
+} 
+.top-search-bar{
+    display: none;
+}
+.top-search-bar input{
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 24px 20px;
+    font-size: 20px;
+    height: 100%;
+}
+.navbar.stick .top-search-bar{
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    align-items: center;
+    padding: 10px 10px;
+    background-color: rgba(255, 255, 255);
+    height: 51px;
+}
+.top-search-bar button{
+    border: 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: none;
+    cursor: pointer;
+    text-align: center;
+}
+.navbar.sticky{
+    height: 8%;
+    background: rgb(231, 226, 226);
+}
+.logo{
+    width: 70px;
+    cursor: pointer;
+}
+.fa-check{
+    cursor: pointer;
+    margin-left: 20px;
+    color: #fff;
+}
+nav{
+    flex: 1;
+    text-align: right;
+}
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 20px;
+}
+nav ul li i{
+    color: #fff;
+    font-size: 13px;
+    margin-left: 10px;
+}
+nav ul li:hover{
+    cursor: pointer;
+}
+.navbar.sticky i{
+    color: #58629b;
+}
+.banner{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(images/pexels-janez-podnar-1424246.jpg);
+    background-size: cover; 
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-bar{
+    width: 100%;
+    max-width: 700px;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+    height: 12%;
+    backdrop-filter: blur(4px) saturate(180%);
+}
+.banner.hidden .search-bar{
+    display: none;
+}
+.search-bar input{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 24px 20px;
+    font-size: 20px;
+    color: #cac7ff;
+}
+::placeholder{
+    color: #cac7ff;
+}
+.fa-magnifying-glass{
+    color: #fff;
+}
+.search-bar button{
+    border: 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: #58629b;
+    cursor: pointer;
+    text-align: center;
+}
+.team{
+    padding: 50px 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 80%;
+    height: 50px auto;
+    margin: 50px auto;
+}
+.row{
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+h1{
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    font-size: 48px;
+    text-transform: uppercase;
+}
+.row p{
+    margin: 20px 0 0;
+    color: #fff;
+    padding-left: 20px;
+    border-left: 5px solid #9590df;
+}
+.row2{
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.row2 .column{
+    margin: 10px 10px;
+    position: relative;
+    width: calc(25% - 20px);
+    min-height: 250px;
+    background: #fff;
+    box-sizing: border-box;
+    overflow: hidden;
+    /*float: left;*/
+} 
+.row2 .column:before{
+    content: '';
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(51, 48, 99, 1);
+    z-index: 1;
+    transition: .5s;
+    mix-blend-mode: soft-light;
+}
+.row2 .column:hover:before{
+    bottom: 0;
+}
+.row2 .column .imgBox{
+    position: relative;
+}
+.row2 .column .imgBox img{
+    width: 100%;
+    transition: 5s;
+}
+.row2 .column:hover .imgBox img{
+    transform: scale(1.5);
+}
+.row2 .column .details{
+    position: absolute;
+    bottom: -85px;
+    left: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,.9);
+    width: 100%;
+    transition: .5s;
+    z-index: 2;
+}
+.row2 .column:hover .details{
+    bottom: 0;
+}
+.row2 .column .details h3{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-weight: 500;
+    text-align: right;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+.row2 .column .details h3 span{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #333063;
+    font-weight: 900;
+    text-transform: uppercase;
+    position: relative;
+    top: -6px;
+}
+.row2 .column .details ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    float: right;
+}
+.row2 .column .details ul li{
+    list-style: none;
+}
+.row2 .column .details ul li a{
+    padding: 0 10px;
+    color: #fff;
+}
+.row2 .column .details ul li a .fa-brands{
+    transition: .5s;
+}
+.row2 .column .details ul li a:hover .fa-brands{
+    transform: rotateY(360deg);
+    color: #333063;
+}
+input[type="checkbox"]{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3;
+    transform: scale(2);
+    cursor: pointer;
+    display: none;
+}
+.row2 .column:hover input[type="checkbox"]{
+    display: block;
+}
+input[type="checkbox"]:checked{
+    display: block;
+}
+.addmember{
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.addmember form {
+    width: 100%;
+}
+.addmember .form-group {
+    margin-bottom: 15px;
+}
+.addmember .form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.addmember .form-group input[type="text"],
+.addmember .form-group input[type="email"],
+.addmember .form-group input[type="url"],
+.addmember .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.addmember .form-group input[type="file"] {
+    border: none;
+}
+.addmember .form-group textarea {
+    height: 100px;
+}
+.addmember .form-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #58629b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.addmember .form-group button:hover {
+    background-color: #464e7c;
+}
