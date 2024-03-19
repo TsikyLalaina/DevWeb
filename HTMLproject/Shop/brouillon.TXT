@@ -1,0 +1,151 @@
+To make a search bar functional, you need to use HTML, CSS, and JavaScript. Here are some basic steps to follow:
+
+- **Create an HTML element for the search bar**. You can use an `<input>` tag with a `type="text"` attribute to create a text field for the user to enter their query. You can also add an `<button>` element with a `type="submit"` attribute to create a button for the user to click to start the search. Alternatively, you can use an `<input>` tag with a `type="search"` attribute, which combines both the text field and the button in one element. For example:
+
+```html
+<input type="text" id="search-bar" placeholder="Search...">
+<button type="submit" id="search-button">Search</button>
+
+<!-- or -->
+
+<input type="search" id="search-bar" placeholder="Search...">
+```
+
+- **Style the search bar with CSS**. You can use CSS to customize the appearance and layout of the search bar element. For example, you can change the size, color, border, font, padding, margin, etc. of the input and button elements. You can also use CSS media queries to make the search bar responsive for different screen sizes. For example:
+
+```css
+/* Style the input element */
+#search-bar {
+  width: 300px;
+  height: 40px;
+  border: 1px solid gray;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+/* Style the button element */
+#search-button {
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: blue;
+  color: white;
+}
+
+/* Make the search bar responsive */
+@media screen and (max-width: 600px) {
+  #search-bar {
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+  }
+
+  #search-button {
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+  }
+}
+```
+
+- **Add functionality to the search bar with JavaScript**. 
+You can use JavaScript to capture the user input from the search bar and perform a search operation on your data source. 
+For example, you can use an event listener to detect when the user types something in the input element or clicks on the button element. 
+Then, you can use a function to compare the user input with your data source and filter out the matching results. 
+You can also use another function to display the results on your web page. For example:
+
+```javascript
+// Get a reference to the input and button elements
+var searchBar = document.getElementById("search-bar");
+var searchButton = document.getElementById("search-button");
+
+// Get a reference to your data source (e.g., an array of strings)
+var data = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
+
+// Define a function to perform a search operation
+function search(query) {
+  // Create an empty array to store the matching results
+  var results = [];
+  
+  // Loop through the data source and compare each item with the query
+  for (var i = 0; i < data.length; i++) {
+    // Convert both the item and the query to lowercase for case-insensitive comparison
+    var item = data[i].toLowerCase();
+    var query = query.toLowerCase();
+
+    // Check if the item contains the query as a substring
+    if (item.includes(query)) {
+      // If yes, push the item to the results array
+      results.push(data[i]);
+    }
+  }
+
+  // Return the results array
+  return results;
+}
+
+// Define a function to display the results on the web page
+function displayResults(results) {
+  // Get a reference to an HTML element where you want to display the results (e.g., a div)
+  var resultDiv = document.getElementById("result-div");
+
+  // Clear any previous content from the result div
+  resultDiv.innerHTML = "";
+
+  // Check if there are any results
+  if (results.length > 0) {
+    // If yes, loop through the results array and create an HTML element for each result (e.g., a paragraph)
+    for (var i = 0; i < results.length; i++) {
+      var resultPara = document.createElement("p");
+      resultPara.textContent = results[i];
+      // Append each result element to the result div
+      resultDiv.appendChild(resultPara);
+    }
+  } else {
+    // If no, create an HTML element to display a message (e.g., a paragraph)
+    var noResultPara = document.createElement("p");
+    noResultPara.textContent = "No results found.";
+    // Append the message element to the result div
+    resultDiv.appendChild(noResultPara);
+  }
+}
+
+// Add an event listener to the input element to detect when the user types something
+searchBar.addEventListener("input", function() {
+  // Get the user input from the input element
+  var query = searchBar.value;
+  // Perform a search operation using the user input
+  var results = search(query);
+  // Display the results on the web page
+  displayResults(results);
+});
+
+// Add an event listener to the button element to detect when the user clicks on it
+searchButton.addEventListener("click", function() {
+  // Get the user input from the input element
+  var query = searchBar.value;
+  // Perform a search operation using the user input
+  var results = search(query);
+  // Display the results on the web page
+  displayResults(results);
+});
+```
+
+These are some basic steps to create a functional search bar. You can find more examples and tutorials on how to make a search bar with different features and functionalities on these websites:
+
+- [How To Create a Search Menu - W3Schools](https://www.w3schools.com/howto/howto_js_search_menu.asp)
+- [How to Design the Perfect Search Bar for Your Website - HubSpot Blog](https://blog.hubspot.com/website/search-bar-design)
+- [Making a Simple Search Bar with JavaScript - Medium](https://medium.com/@saumyashah717/making-a-simple-search-bar-with-javascript-6cff1554d13c)
+- [Search Bar using HTML, CSS and JavaScript - GeeksforGeeks](https://www.geeksforgeeks.org/search-bar-using-html-css-and-javascript/)
+- [How to Build a Search Bar with JavaScript - Plain English](https://plainenglish.io/blog/how-to-build-a-search-bar-7d8a8a3d9d00)
+
+I hope this helps you create your own search bar. 😊
+
+Source: Conversation with Bing, 12/07/2023
+(1) How To Create a Search Menu - W3Schools. https://www.w3schools.com/howto/howto_js_search_menu.asp.
+(2) How To Create a Search Bar - W3Schools. https://www.w3schools.com/howto/howto_css_searchbar.asp.
+(3) How to Design the Perfect Search Bar for Your Website - HubSpot Blog. https://blog.hubspot.com/website/search-bar-design.
+(4) Making a Simple Search Bar with JavaScript - Medium. https://medium.com/@saumyashah717/making-a-simple-search-bar-with-javascript-6cff1554d13c.
+(5) Search Bar using HTML, CSS and JavaScript - GeeksforGeeks. https://www.geeksforgeeks.org/search-bar-using-html-css-and-javascript/.
+(6) How to Build a Search Bar with JavaScript - Plain English. https://plainenglish.io/blog/how-to-build-a-search-bar-7d8a8a3d9d00.

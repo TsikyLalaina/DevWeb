@@ -1,0 +1,153 @@
+body, html {
+  height: 100%;
+  margin-top: -2%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-down: 0;
+  background-color: rgb(240, 240, 240);
+}
+
+#top-div {
+  background-image: url('_1a340288-183e-485a-af5c-d6ebb00b3f92 - Copie.jpg');
+  /*filter: blur(8px);*/
+  height: 100%; 
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+  
+#logo-img {
+  height: 80px;
+  width: auto;
+}
+
+#nav-list {
+  list-style-type: none;
+}
+
+#nav-list li {
+  display: inline-block; 
+  margin-right: 5%; 
+  margin-top: 5%;
+  margin-left: 4%;
+  vertical-align: text-top;
+}
+
+#nav-list li a {
+ color: black; 
+ font-family: Arial, sans-serif; 
+ font-size: 140%; 
+ text-decoration: none; 
+}
+
+#nav-list li a:hover {
+ text-decoration: underline; 
+}
+
+#title-div {
+ margin-top: 3%;
+ margin-left: 6%;
+ width: 50%;
+}
+
+#title-div p, #main-div p {
+  font-size: 130%;
+  width: 90%;
+}
+
+#title-text, #main-div h2 {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-size: 190%;
+}
+
+#main-div {
+ margin-top: 3%;
+ margin-left: 6%;
+ width: 90%;
+}
+
+#main-div a{
+ margin-left: 70%;
+ color: white; 
+ font-family: Arial, sans-serif; 
+ font-size: 140%; 
+ text-decoration: none; 
+ background-color: rgb(67, 197, 185);
+ border-radius: 10px;
+ padding: 1%;
+ //margin-right: 10%;
+}
+
+#main-div a:hover{
+ background-color: rgb(51, 166, 157);
+}
+
+footer {
+    background-color: rgb(251,219,198);
+    color: white;
+    font-family: Arial;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content p{
+    color: black;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-links ul {
+    list-style-type: none;
+}
+
+.footer-links li {
+    margin: 10px;
+}
+
+.footer-links a {
+   text-decoration: none;
+   color: black;
+}
+
+.footer-links a:hover {
+   color: rgb(244, 155, 96);
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-social a{
+    margin-right: 10px;
+}
+
+.footer-social img {
+    /* Set the width and height to 30 pixels */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+@media only screen and (max-width: 1200px){
+   div#top-div {
+     background-image: url('_1a340288-183e-485a-af5c-d6ebb00b3f92 - Copie.jpg');
+     /*filter: blur(8px);*/
+     height: 100%; 
+     width: 300%;
+     background-repeat: no-repeat;
+     background-size: 100%;
+  }
+}
+

@@ -1,0 +1,644 @@
+To position a dropdown menu at the bottom right of every product, you need to modify the HTML and CSS code that you showed earlier. Here are some steps you can follow:
+
+- In the HTML code, add a `<div>` element with a class attribute of `dropdown` inside each `<div>` element with a class attribute of `product`. This will create a container element for the dropdown button and the dropdown content for each product.
+- In the HTML code, add a `<button>` element with a class attribute of `dropbtn` inside each `<div>` element with a class attribute of `dropdown`. This will create a button element for the dropdown button for each product. You can use an icon library (such as [Font Awesome](https://fontawesome.com/)) to add an icon to the button.
+- In the HTML code, add another `<div>` element with a class attribute of `dropdown-content` inside each `<div>` element with a class attribute of `dropdown`. This will create another container element for the dropdown content for each product.
+- In the HTML code, add a `<ul>` element with a class attribute of `dropdown-menu` inside each `<div>` element with a class attribute of `dropdown-content`. This will create a list element for the dropdown items for each product.
+- In the HTML code, add `<li>` elements with `<a>` elements inside them inside each `<ul>` element with a class attribute of `dropdown-menu`. This will create list item elements for each dropdown item for each product. You can use an icon library (such as [Font Awesome](https://fontawesome.com/)) to add an icon to each item.
+- In the CSS code, add a `position: relative` property to the `.product` selector. This will position the dropdown content relative to the product element.
+- In the CSS code, add a `position: absolute` property to the `.dropdown-content` selector. This will place the content below the button.
+- In the CSS code, add a `right: 0` property to the `.dropdown-content` selector. This will align the content to the right side of the product element.
+- In the CSS code, add a `display: none` property to the `.dropdown-content` selector. This will hide the content by default.
+- In the CSS code, add a `.dropdown:hover .dropdown-content {display: block;}` selector. This will show the content when the user hovers over the button.
+
+Here is an example of a modified HTML code that creates a dropdown menu with icons at the bottom right of every product:
+
+```html
+<!-- Load an icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Create a container element for all products -->
+<div class="container">
+  <!-- Create a product element -->
+  <div class="product">
+    <!-- Create an image element for the product -->
+    <img src="product.jpg" alt="Product Image">
+    <!-- Create an info element for the product -->
+    <div class="product-info">
+      <p>Product Name</p>
+      <p>Product Price</p>
+    </div>
+    <!-- Create a container element for the dropdown -->
+    <div class="dropdown">
+      <!-- Create a button element for the dropdown button -->
+      <button class="dropbtn"><i class="fa fa-bars"></i></button>
+      <!-- Create another container element for the dropdown content -->
+      <div class="dropdown-content">
+        <!-- Create a list element for the dropdown items -->
+        <ul class="dropdown-menu">
+          <!-- Create list item elements for each dropdown item -->
+          <li><i class="fa fa-edit"></i><a href="#">Modify</a></li>
+          <li><i class="fa fa-trash"></i><a href="#">Delete</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Repeat for other products -->
+</div>
+```
+
+Here is an example of a modified CSS code that styles the dropdown menu with icons at the bottom right of every product:
+
+```css
+/* Style each product */
+.product {
+  position: relative;
+  margin-right: 150px;
+  margin-bottom: 50px;
+  background-color: rgb(240,240,240,0.8);
+  padding-bottom: 20px;
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-top: 15px;
+  border-radius: 10px;
+}
+
+/*
+
+Source: Conversation with Bing, 10/05/2023
+(1) html - Positioning of dropdown menu in CSS - Stack Overflow. https://stackoverflow.com/questions/32554024/positioning-of-dropdown-menu-in-css.
+(2) css to align drop down to the right - Stack Overflow. https://stackoverflow.com/questions/5369393/css-to-align-drop-down-to-the-right.
+(3) How To Create a Hoverable Dropdown Menu - W3School. https://www.w3schools.com/howto/howto_css_dropdown.asp.
+
+To show the dropdown content only when the dropdown button is clicked, and to make the dropdown content overflow over other elements, you need to modify the HTML and CSS code that you showed earlier. Here are some steps you can follow:
+
+- In the HTML code, add a `onclick` attribute to each `<button>` element with a class attribute of `dropbtn`. This will add a click event handler to each button that will toggle the visibility of the dropdown content. For example, you can use `onclick="showDropdown(this)"` to call a JavaScript function named `showDropdown` and pass the button element as a parameter.
+- In the CSS code, add a `overflow: visible` property to the `.product` selector. This will allow the dropdown content to overflow over other elements.
+- In the CSS code, add a `z-index: 1` property to the `.dropdown-content` selector. This will place the content above other elements.
+- In the JavaScript code, create a function named `showDropdown` that takes a button element as a parameter and toggles the visibility of its sibling element with a class attribute of `dropdown-content`. You can use the `nextElementSibling` property to access the sibling element and the `style.display` property to change its display value. For example, you can use something like this:
+
+```javascript
+function showDropdown(button) {
+  // get the sibling element with class name 'dropdown-content'
+  var content = button.nextElementSibling;
+  // check if the content is hidden or not
+  if (content.style.display == "none") {
+    // if hidden, show it
+    content.style.display = "block";
+  } else {
+    // if not hidden, hide it
+    content.style.display = "none";
+  }
+}
+```
+
+Here is an example of a modified HTML code that shows the dropdown content only when the dropdown button is clicked:
+
+```html
+<!-- Load an icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Create a container element for all products -->
+<div class="container">
+  <!-- Create a product element -->
+  <div class="product">
+    <!-- Create an image element for the product -->
+    <img src="product.jpg" alt="Product Image">
+    <!-- Create an info element for the product -->
+    <div class="product-info">
+      <p>Product Name</p>
+      <p>Product Price</p>
+    </div>
+    <!-- Create a container element for the dropdown -->
+    <div class="dropdown">
+      <!-- Create a button element for the dropdown button with onclick attribute -->
+      <button class="dropbtn" onclick="showDropdown(this)"><i class="fa fa-bars"></i></button>
+      <!-- Create another container element for the dropdown content -->
+      <div class="dropdown-content">
+        <!-- Create a list element for the dropdown items -->
+        <ul class="dropdown-menu">
+          <!-- Create list item elements for each dropdown item -->
+          <li><i class="fa fa-edit"></i><a href="#">Modify</a></li>
+          <li><i class="fa fa-trash"></i><a href="#">Delete</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Repeat for other products -->
+</div>
+```
+
+Here is an example of a modified CSS code that makes the dropdown content overflow over other elements:
+
+```css
+/* Style each product */
+.product {
+  position: relative;
+  margin-right: 150px;
+  margin-bottom: 50px;
+  background-color: rgb(240,240,240,0.8);
+  padding-bottom: 20px;
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-top: 15px;
+  border-radius: 10px;
+  /* allow overflow */
+  overflow: visible;
+}
+
+/*
+
+Source: Conversation with Bing, 10/05/2023
+(1) How to get a drop-down menu to overlay other elements. https://stackoverflow.com/questions/29732488/how-to-get-a-drop-down-menu-to-overlay-other-elements.
+(2) CSS Dropdowns display list over other elements - Stack Overflow. https://stackoverflow.com/questions/5996354/css-dropdowns-display-list-over-other-elements.
+(3) CSS Dropdowns - W3School. https://www.w3schools.com/Css/css_dropdowns.asp.
+
+I can help you with making the delete option functional. Here are some steps you can follow:
+
+- To delete an item from localStorage, you need to use the `removeItem()` method that takes the key name as an argument and removes it from the storage²⁴. For example, `localStorage.removeItem('key_to_remove')`.
+- To delete the product element from the page, you can use the `remove()` method on the element itself or on its parent element². For example, `element.remove()` or `parentElement.removeChild(element)`.
+- To rearrange the products on the page after deleting one, you can use the `splice()` method on the array of products to remove the deleted item and then re-render the products using your `displayProducts()` function². For example, `products.splice(i, 1)` where `i` is the index of the deleted item.
+- To prevent the page from reloading instantly after deleting a product, you can use the `preventDefault()` method on the event object that is passed to your click handler function². For example, `e.preventDefault()` where `e` is the event object.
+
+Here is a possible code snippet that implements these steps:
+
+```javascript
+// add a click event listener to all delete links
+document.querySelectorAll('.delete-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    // prevent default behavior of reloading the page
+    e.preventDefault();
+    // get the product element that contains the clicked link
+    var product = this.closest('.product');
+    // get the product name and price from the product element
+    var productName = product.querySelector('.product-info p:first-child').textContent;
+    var productPrice = product.querySelector('.product-info p:last-child').textContent;
+    // get the products array from localStorage
+    var products = getProducts();
+    // loop through the products array and find the matching product
+    for (var i = 0; i < products.length; i++) {
+      if (products[i].name == productName && products[i].price == productPrice) {
+        // remove the product from localStorage
+        localStorage.removeItem(products[i]);
+        // remove the product from the array
+        products.splice(i, 1);
+        // break out of the loop
+        break;
+      }
+    }
+    // store the updated products array in localStorage
+    storeProducts(products);
+    // remove the product element from the page
+    product.remove();
+    // clear container and re-display products
+    document.querySelector('.container').innerHTML = '';
+    displayProducts();
+  });
+});
+```
+
+Source: Conversation with Bing, 11/05/2023
+(1) How to delete a specific item/object in localStorage?. https://stackoverflow.com/questions/28362404/how-to-delete-a-specific-item-object-in-localstorage.
+(2) localStorage in JavaScript: A complete guide - LogRocket Blog. https://blog.logrocket.com/localstorage-javascript-complete-guide/.
+(3) localStorage in JavaScript: A complete guide - LogRocket Blog. https://bing.com/search?q=how+to+delete+an+element+from+local+storage.
+(4) javascript - Delete from localStorage - Stack Overflow. https://stackoverflow.com/questions/14608548/delete-from-localstorage.
+(5) 💻 JavaScript - remove item from localStorage - Dirask. https://dirask.com/posts/JavaScript-remove-item-from-localStorage-DZBNdD.
+
+
+
+
+
+One possible solution is to use **responsive design**¹²³, which means using HTML and CSS to automatically resize, hide, shrink, enlarge, or move the content to make it look good on all devices and screen sizes. Some of the CSS features that can help you achieve responsive design are:
+
+- **Setting the viewport**³, which is a meta tag that tells the browser how to scale and size the content according to the device width and height.
+- **Using media queries**¹², which allow you to apply different styles based on the device characteristics, such as width, height, orientation, resolution, etc.
+- **Using relative units**¹², such as percentages, ems, rems, vw, vh, etc., which are based on the parent element's size, the root element's size, or the viewport's size, rather than fixed pixels.
+- **Using flexible layouts**¹², such as grid, flexbox, or multi-column, which can adapt to the available space and rearrange the content accordingly.
+- **Using fluid images**¹², which can scale up or down depending on the container's size, by setting their max-width property to 100%.
+
+Here is a modified version of your code that uses some of these features:
+
+```css
+.add-product {
+  margin-left: 5%;
+  margin-right: 30%;
+  cursor:pointer;
+}
+
+.add-product img {
+  width: 95px;
+  height: 100px;
+}
+
+.product {
+  margin-right: 25%;
+  margin-bottom: 50px;
+  background-color: rgb(240,240,240,0.8);
+  padding-bottom: 20px;
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-top: 15px;
+  border-radius: 10px;
+}
+
+.product img{
+  width: 87px;
+  height: 87px;
+}
+
+.product-info{
+  text-align: center;
+  width: 87px;
+}
+
+.product-row {
+  display: flex;
+}
+
+.dropbtn {
+  margin-left: 70px;
+  cursor:pointer;
+}
+
+.dropbtn img {
+  width: 20px;
+  height: 5px;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: rgb(245,245,245);
+  border-radius: 20px;
+}
+
+.dropdown-menu {
+  list-style-type: none;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: black;
+}
+
+.wrapper {
+  border-radius: 50px;
+  
+/* Use relative units instead of fixed pixels */
+  
+/* Use media queries to change the width of the wrapper based on the viewport width */
+  
+@media (min-width:1200px) {
+    width:70%;
+}
+@media (max-width:1199px) and (min-width:992px) {
+    width:80%;
+}
+@media (max-width:991px) and (min-width:768px) {
+    width:90%;
+}
+@media (max-width:767px) {
+    width:100%;
+}
+  
+/* Use viewport units instead of fixed pixels */
+  
+padding-top:2vh; 
+padding-bottom:2vh; 
+padding-left:2vw; 
+padding-right:2vw; 
+
+/* Use relative units instead of fixed pixels */
+
+margin-left:auto; 
+margin-right:auto; 
+}
+
+html {
+  
+/* Use relative units instead of fixed pixels */
+  
+background-color: rgb(54,119,163); 
+background-size:auto; 
+background-attachment:auto; 
+background-repeat:no-repeat; 
+}
+
+h1 {
+
+/* Use relative units instead of fixed pixels */
+
+font-size:auto; 
+font-family:'Broadway', sans-serif; 
+color:white; 
+
+/* Use relative units instead of fixed pixels */
+
+margin-top:-10%; 
+margin-left:auto; 
+color:white; 
+}
+
+#top-container {
+
+/* Use flexbox layout instead of fixed margins */
+
+display:flex; 
+align-items:center; 
+justify-content:center; 
+}
+
+#budget-container {
+
+/* Use relative units instead of fixed pixels */
+
+display:flex; 
+margin-right:auto; 
+margin-left:auto; 
+}
+
+#expenses-container {
+
+/* Use relative units instead of fixed pixels */
+
+display:flex; 
+margin-right:auto; 
+margin-left:auto; 
+}
+
+#expenses-container img {
+
+/* Use relative units instead of fixed pixels */
+
+width:auto; 
+height:auto;
+
+/* Use fluid images by setting max-width to 100% */
+
+max-width:100%; 
+
+border-radius:auto; 
+}
+
+#budget-container img {
+
+/* Use relative units instead of fixed pixels */
+
+width:auto; 
+height:auto;
+
+/* Use fluid images by setting max-width to 100% */
+
+max-width:100%; 
+
+border-radius:auto; 
+}
+
+#icons {
+
+/* Use flexbox layout instead of fixed margins */
+
+display:flex;
+
+/* Use relative units instead of fixed pixels */
+
+margin-left:auto; 
+margin-right:auto; 
+
+align-items:center; 
+justify-content:center; 
+
+flex-wrap:no-wrap;
+
+/* Use media queries to change the flex direction based on the viewport width */
+
+@media (max-width:767px) {
+    flex-direction:column;
+}
+@media (min-width:768px) {
+    flex-direction:row;
+}
+}
+
+#icons p {
+
+/* Use relative units instead of fixed pixels */
+
+width:auto;
+
+/* Use relative units instead of fixed pixels */
+
+margin-top:auto;
+
+/* Use relative units instead of fixed pixels */
+
+margin-right:auto;
+
+/* Use relative units instead of fixed pixels */
+
+margin-left:auto;
+
+border-radius:auto;
+
+padding-top:auto;
+
+padding-bottom:auto;
+
+padding-left:auto;
+
+padding-right:auto;
+
+text-align:center;
+
+font-size:auto;
+
+line-height:normal;
+
+vertical-align:center;
+
+display:inline-block;
+
+flex-grow:none;
+
+flex-shrink:none;
+
+flex-basis:none;
+
+align-self:center;
+
+justify-self:center;
+
+order:none;
+
+flex:none;
+
+
+}
+
+#budget-value {
+
+background-color:white;
+
+color:black;
+
+}
+
+#expenses-value {
+
+background-color:white;
+
+color:black;
+
+
+}
+```
+
+Source: Conversation with Bing, 29/05/2023
+(1) Responsive Web Design Introduction - W3Schools. https://www.w3schools.com/Css/css_rwd_intro.asp.
+(2) Responsive design - Learn web development | MDN - MDN Web Docs. https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design.
+(3) HTML Responsive Web Design - W3Schools. https://www.w3schools.com/html/html_responsive.asp.
+
+
+
+
+
+
+To open a new window that allows the user to browse and select an image from their local storage, you could use the following steps:
+
+1. Create an input element of type file in the HTML code, and give it an id, such as file-input. You can hide this element with CSS if you don't want it to be visible on the page.
+2. In the changeImage function, instead of using the window.prompt method, use the document.getElementById method to get a reference to the file-input element, and store it in a variable, such as fileInput.
+3. Use the fileInput.click method to trigger a click event on the file-input element, which will open a new window that lets the user choose a file from their local storage.
+4. Add an onchange attribute to the file-input element, and assign it a function name, such as loadImage, that will handle the change event when the user selects a file.
+5. Define the loadImage function in the JavaScript code, and pass it a parameter, such as event, that will represent the change event object.
+6. In the loadImage function, use the event.target property to get a reference to the file-input element that triggered the change event, and store it in a variable, such as fileInput.
+7. Use the fileInput.files property to get an array of files that were selected by the user, and access the first element of the array, which is the file object, and store it in a variable, such as file.
+8. Use the URL.createObjectURL method to create a URL that represents the file object, and store it in a variable, such as imageURL.
+9. Use the clickedImage.src property to set the source attribute of the image element to the imageURL value.
+
+Here is an example of how the HTML and JavaScript code could look like:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div id="top-div">
+          <!-- The code from the previous responses -->
+     </div>
+     <div id="main-div">
+          <div id="products-div">
+               <!-- The code from the previous responses -->
+               <!-- Add an onclick attribute to each product-img element -->
+               <img src="product1.jpg" alt="Product 1" class="product-img" onclick="changeImage(event)">
+               <img src="product2.jpg" alt="Product 2" class="product-img" onclick="changeImage(event)">
+               <img src="product3.jpg" alt="Product 3" class="product-img" onclick="changeImage(event)">
+               <img src="product4.jpg" alt="Product 4" class="product-img" onclick="changeImage(event)">
+          </div>
+          <div id="budget-div">
+               <!-- The code from the previous responses -->
+          </div>
+     </div>
+     <!-- Create an input element of type file and add an onchange attribute -->
+     <input type="file" id="file-input" onchange="loadImage(event)">
+     <script src="script.js"></script>
+</body>
+</html>
+
+```
+
+```javascript
+// The code from the previous responses
+
+// Define a global variable to store the reference to the image element that was clicked
+let clickedImage;
+
+// Define the changeImage function
+function changeImage(event) {
+  // Get a reference to the image element that was clicked and assign it to the global variable
+  clickedImage = event.target;
+
+  // Get a reference to the file-input element
+  let fileInput = document.getElementById("file-input");
+
+  // Trigger a click event on the file-input element
+  fileInput.click();
+}
+
+// Define the loadImage function
+function loadImage(event) {
+  // Get a reference to the file-input element that triggered the change event
+  let fileInput = event.target;
+
+  // Get an array of files that were selected by the user
+  let files = fileInput.files;
+
+  // Check if there is at least one file in the array
+  if (files.length > 0) {
+    // Get the first file object in the array
+    let file = files[0];
+
+    // Create a URL that represents the file object
+    let imageURL = URL.createObjectURL(file);
+
+    // Set the source attribute of the image element to the imageURL value
+    clickedImage.src = imageURL;
+  }
+}
+```
+
+I think the problem is that you are using the URL.createObjectURL method to create a URL that represents the file object, and then storing that URL in the local storage. However, according to the documentation, the URL created by this method is only valid within the current document, and it will be revoked when the document is unloaded. This means that when you reload the page, the URL will no longer point to the file object, and the image will not be found.
+
+One possible solution is to use the FileReader API to read the file object as a data URL, which is a string that encodes the file content as base64. Then, you can store the data URL in the local storage, and use it as the source attribute of the image element. This way, the data URL will persist across page reloads, and the image will be displayed correctly.
+
+Here is an example of how you can modify your loadImage function to use this solution:
+
+```javascript
+// Define the loadImage function
+function loadImage(event) {
+  // get the product element that contains the clicked link
+  var product = clickedImage.closest('.product');
+  // get the product name and price from the product element
+  var productName = product.querySelector('.product-info p:first-child').textContent;
+  var productPrice = product.querySelector('.product-info p:last-child').textContent;
+
+  // Get a reference to the file-input element that triggered the change event
+  let fileInput = event.target;
+
+  // Get an array of files that were selected by the user
+  let files = fileInput.files;
+
+  // Check if there is at least one file in the array
+  if (files.length > 0) {
+    // Get the first file object in the array
+    let file = files[0];
+
+    // Create a FileReader object
+    let reader = new FileReader();
+
+    // Define a function that will run when the reader finishes loading the file
+    reader.onload = function() {
+      // Get the data URL that represents the file content
+      let dataURL = reader.result;
+
+      // get the products array from localStorage
+      var products = getProducts();
+      // loop through the products array and find the matching product
+      for (var i = 0; i < products.length; i++) {
+        if (products[i].name == productName && products[i].price == productPrice) {
+          products[i].image = dataURL;
+          // store the updated products array in localStorage
+          storeProducts(products);
+          // clear container and re-display products
+          document.querySelector('.container').innerHTML = '';
+          displayProducts();
+          break;
+        }
+      }
+    };
+
+    // Read the file object as a data URL
+    reader.readAsDataURL(file);
+  }
+}
+```
