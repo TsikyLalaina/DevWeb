@@ -8,25 +8,20 @@ window.addEventListener('scroll', function(){
     banner.classList.toggle("hidden", window.scrollY > rect.bottom);
 });
 function deleteCards() {
-    // Gather the IDs of the members to be deleted
     var memberIds = $(".select-card:checked").map(function() {
-        return $(this).data('memberid'); // Assuming each checkbox has a 'data-member-id' attribute
+        return $(this).data('memberid');
     }).get();
 
-    // Send the array of IDs to 'removemember.php' via AJAX
     $.ajax({
-        url: 'removemember.php', // The server-side script to process the deletion
+        url: 'removemember.php',
         type: 'POST',
-        data: { 'memberIds': memberIds }, // The data to send
+        data: { 'memberIds': memberIds },
         success: function(response) {
-            // Handle the response from the server
-            // If successful, remove the member elements from the page
             $(".select-card:checked").each(function() {
                 $(this).closest('.column').remove();
             });
         },
         error: function(xhr, status, error) {
-            // Handle any errors that occur during the request
             alert("Error: " + error);
         }
     });
@@ -72,6 +67,7 @@ $(document).ready(function(){
                             </div>
                         </div>
                     `)
+                    alert("member added successfully");
                 }else if(formAction == "editmember.php"){
                     var updatedMember = JSON.parse(data);
                     // Find the column with the matching 'data-memberid'
@@ -89,6 +85,7 @@ $(document).ready(function(){
                         // Add cases for other social networks
                         }
                     });
+                    alert("Member edited successfully");
                 }
             },
             error: function(){
@@ -139,3 +136,62 @@ function populateForm(memberData) {
     $('#email').val(memberData.email);
     //$('#memberForm').find('button[type="submit"]').text('Update Member');
 }
+$(document).ready(function(){
+    $(".livesearch").keyup(function(){
+        var input = $(this).val();
+        $.ajax({
+            url: 'getallmember.php',
+            success: function(data) {
+                var memberdata = JSON.parse(data);
+                filterAndDisplayMembers(memberdata, input);
+            },
+            error: function(xhr, status, error) {
+                alert("Error fetching member data: " + error);
+            }
+        });
+    });
+
+    function filterAndDisplayMembers(allMembers, searchInput) {
+        $('.row2').empty();
+
+        if (searchInput.trim() === '') {
+            allMembers.forEach(function(member) {
+                displayMember(member);
+            });
+        } else {
+            var filteredMembers = allMembers.filter(function(member) {
+                return member.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+                    member.fname.toLowerCase().includes(searchInput.toLowerCase()) ||
+                    member.studentid.toLowerCase().includes(searchInput.toLowerCase()) ||
+                    member.grade.toLowerCase().includes(searchInput.toLowerCase()) ||
+                    member.major.toLowerCase().includes(searchInput.toLowerCase()) ||
+                    member.position.toLowerCase().includes(searchInput.toLowerCase()) ||
+                    member.bio.toLowerCase().includes(searchInput.toLowerCase()) ||
+                    member.email.toLowerCase().includes(searchInput.toLowerCase());
+            });
+
+            filteredMembers.forEach(displayMember);
+        }
+    }
+
+    function displayMember(member) {
+        $('.row2').append(`
+            <div class="column">
+                <input type="checkbox" class="select-card" data-memberid="${member.studentid}">
+                <div class="imgBox">
+                    <img src="${member.image}" alt="profile">
+                </div>
+                <div class="details">
+                    <h3>${member.fname}<br><span>${member.position}</span></h3>
+                    <ul>
+                        <li><a href="${member.facebook}"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-google-plus-g"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        `);
+    }
+});
